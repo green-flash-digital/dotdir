@@ -1,11 +1,11 @@
-<div align="center" style="padding-bottom: 30px">
+<!-- <div align="center" style="padding-bottom: 30px">
   <img align="center" width="50%" src="./public/dotconfig-logo-transparent.png" style="margin: 0 auto;"/>
   <p>TBD</p>
-</div>
+</div> -->
 
-## dotconfig
+# dotconfig
 
-TBD
+Easily find and reconcile a project dot config directory to house project specific configurations & files
 
 ## Documentation
 

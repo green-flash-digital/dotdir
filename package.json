@@ -1,12 +1,18 @@
 {
-  "packageManager": "yarn@4.6.0",
   "name": "dotconfig",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Easily find and reconcile a project dot config directory to house project specific configurations & files",
   "type": "module",
+  "packageManager": "yarn@4.6.0",
+  "publishConfig": {
+    "access": "public"
+  },
   "exports": {
     ".": "./dist/index.js"
   },
+  "files": [
+    "dist"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/green-flash-digital/dotconfig.git"
@@ -18,7 +24,8 @@
   },
   "homepage": "https://github.com/green-flash-digital/dotconfig#readme",
   "scripts": {
-    "execute": "yarn tsx ./scripts/run.ts"
+    "execute": "yarn tsx ./scripts/run.ts",
+    "build": "yarn tsc --project ./tsconfig.build.json"
   },
   "dependencies": {
     "esbuild": "^0.25.0",
