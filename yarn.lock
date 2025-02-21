@@ -367,9 +367,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dotconfig@workspace:.":
+"dotdir@workspace:.":
   version: 0.0.0-use.local
-  resolution: "dotconfig@workspace:."
+  resolution: "dotdir@workspace:."
   dependencies:
     "@types/node": "npm:22.13.4"
     esbuild: "npm:^0.25.0"

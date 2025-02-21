@@ -4,7 +4,7 @@ import { tryHandle } from "ts-jolt/isomorphic";
 import { findDirectoryUpwards, hashString, TempFile } from "ts-jolt/node";
 import * as esbuild from "esbuild";
 
-export type DotConfigFindOptions = {
+export type DotDirFindOptions = {
   /**
    * The working directory you wish to search from
    * @default process.cwd
@@ -19,7 +19,7 @@ export type DotConfigFindOptions = {
   dirName?: string;
 };
 
-export type DotConfigResponse<C extends Record<string, unknown>> = {
+export type DotDirResponse<C extends Record<string, unknown>> = {
   config: C | undefined;
   filePath: string;
   ext: string;
@@ -27,7 +27,7 @@ export type DotConfigResponse<C extends Record<string, unknown>> = {
   dirPath: string;
 };
 
-export class DotConfig<C extends Record<string, unknown>> {
+export class DotDir<C extends Record<string, unknown>> {
   cache: Map<string, C>;
 
   constructor() {
@@ -91,7 +91,7 @@ export class DotConfig<C extends Record<string, unknown>> {
    * - `mjs`
    * - `cjs`
    */
-  async find(options?: DotConfigFindOptions): Promise<DotConfigResponse<C>> {
+  async find(options?: DotDirFindOptions): Promise<DotDirResponse<C>> {
     const startingDir = options?.cwd ?? process.cwd();
     const dirName = await this.getDirName(startingDir, options?.dirName);
 

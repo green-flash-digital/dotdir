@@ -1,1 +1,1 @@
-export * from "./DotConfig.js";
+export * from "./DotDir.js";

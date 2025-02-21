@@ -11,14 +11,14 @@ const RAW_RUNTIME_STATE =
   ],\
   "dependencyTreeRoots": [\
     {\
-      "name": "dotconfig",\
+      "name": "dotdir",\
       "reference": "workspace:."\
     }\
   ],\
   "enableTopLevelFallback": true,\
   "ignorePatternData": "(^(?:\\\\.yarn\\\\/sdks(?:\\\\/(?!\\\\.{1,2}(?:\\\\/|$))(?:(?:(?!(?:^|\\\\/)\\\\.{1,2}(?:\\\\/|$)).)*?)|$))$)",\
   "fallbackExclusionList": [\
-    ["dotconfig", ["workspace:."]]\
+    ["dotdir", ["workspace:."]]\
   ],\
   "fallbackPool": [\
   ],\
@@ -492,11 +492,11 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
-    ["dotconfig", [\
+    ["dotdir", [\
       ["workspace:.", {\
         "packageLocation": "./",\
         "packageDependencies": [\
-          ["dotconfig", "workspace:."],\
+          ["dotdir", "workspace:."],\
           ["@types/node", "npm:22.13.4"],\
           ["esbuild", "npm:0.25.0"],\
           ["ts-jolt", "npm:0.2.1"],\

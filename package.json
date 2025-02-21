@@ -1,6 +1,6 @@
 {
-  "name": "dotconfig",
-  "version": "0.1.0",
+  "name": "dotdir",
+  "version": "0.2.0",
   "description": "Easily find and reconcile a project dot config directory to house project specific configurations & files",
   "type": "module",
   "packageManager": "yarn@4.6.0",
