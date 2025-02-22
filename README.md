@@ -1,16 +1,16 @@
 <!-- <div align="center" style="padding-bottom: 30px">
-  <img align="center" width="50%" src="./public/dotconfig-logo-transparent.png" style="margin: 0 auto;"/>
+  <img align="center" width="50%" src="./public/dotdir-logo-transparent.png" style="margin: 0 auto;"/>
   <p>TBD</p>
 </div> -->
 
-# dotconfig
+# dotdir
 
-Easily find and reconcile a project dot config directory to house project specific configurations & files
+Easily find and reconcile a dot prefixed configuration config directory to house project specific configurations & files
 
 ## Documentation
 
-Check out the `dotconfig` documentation: https://dotconfig.greenflash.digital
+Check out the `dotdir` documentation: https://dotdir.greenflash.digital
 
 ## Organization
 
-Check out the company behind `dotconfig`: https://greenflash.digital
+Check out the company behind `dotdir`: https://greenflash.digital
