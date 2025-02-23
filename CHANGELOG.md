@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.3.1 (2025-02-23)
+
+### 🐛 Fixed
+
+- Ensures that a configuration, regardless of caching, is returned with the `DotDirResponse`.
+
 ## v0.3.0 (2025-02-23)
 
 ### 🔄 Changed

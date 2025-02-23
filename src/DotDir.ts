@@ -20,7 +20,7 @@ export type DotDirFindOptions = {
 };
 
 export type DotDirResponse<C extends Record<string, unknown>> = {
-  config: C | undefined;
+  config: C;
   meta: {
     filePath: string;
     ext: string;
@@ -145,11 +145,12 @@ export class DotDir<C extends Record<string, unknown>> {
     const configContents = await readFile(configProperties.filePath, "utf8");
     const contentHash = hashString(configContents);
 
-    if (this.cache.has(contentHash)) {
+    // Check to see if the content hashed config has already been cached
+    const cachedConfig = this.cache.get(contentHash);
+    if (cachedConfig) {
       // console.log("Config contents have not changed. Returning cached config.");
-      const config = this.cache.get(contentHash);
       return {
-        config,
+        config: cachedConfig,
         meta: { dirName, dirPath: res.data, ...configProperties },
       };
     }
