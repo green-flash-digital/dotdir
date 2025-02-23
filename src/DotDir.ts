@@ -21,10 +21,12 @@ export type DotDirFindOptions = {
 
 export type DotDirResponse<C extends Record<string, unknown>> = {
   config: C | undefined;
-  filePath: string;
-  ext: string;
-  dirName: string;
-  dirPath: string;
+  meta: {
+    filePath: string;
+    ext: string;
+    dirName: string;
+    dirPath: string;
+  };
 };
 
 export class DotDir<C extends Record<string, unknown>> {
@@ -147,10 +149,8 @@ export class DotDir<C extends Record<string, unknown>> {
       // console.log("Config contents have not changed. Returning cached config.");
       const config = this.cache.get(contentHash);
       return {
-        dirName,
-        dirPath: res.data,
-        ...configProperties,
         config,
+        meta: { dirName, dirPath: res.data, ...configProperties },
       };
     }
 
@@ -165,10 +165,12 @@ export class DotDir<C extends Record<string, unknown>> {
     this.cache.set(contentHash, config);
 
     return {
-      dirName,
-      dirPath: res.data,
-      ...configProperties,
       config,
+      meta: {
+        dirName,
+        dirPath: res.data,
+        ...configProperties,
+      },
     };
   }
 }
