@@ -1,8 +1,8 @@
 import { readFile, stat } from "node:fs/promises";
 import { join, resolve } from "node:path";
 import { tryHandle } from "ts-jolt/isomorphic";
-import { findDirectoryUpwards, hashString, TempFile } from "ts-jolt/node";
-import * as esbuild from "esbuild";
+import { findDirectoryUpwards, hashString } from "ts-jolt/node";
+import { hotImport } from "ts-hot-import";
 
 export type DotDirFindOptions = {
   /**
@@ -47,36 +47,6 @@ export class DotDir<C extends Record<string, unknown>> {
       );
     }
     return `.${name}`;
-  }
-
-  private async transpileConfig(configProperties: {
-    filePath: string;
-    ext: string;
-  }) {
-    const esbuildRes = await tryHandle(esbuild.build)({
-      entryPoints: [configProperties.filePath],
-      tsconfigRaw: JSON.stringify("ts-jolt/tsconfig/library"),
-      write: false,
-    });
-    if (esbuildRes.hasError) throw esbuildRes.error;
-
-    const outputFile = esbuildRes.data.outputFiles[0];
-    const outputFileContents = Buffer.from(outputFile.contents).toString(
-      "utf-8"
-    );
-    const tempFile = new TempFile();
-    const filePath = await tempFile.create(outputFileContents, "js");
-
-    const configModule = await import(`file://${filePath}`);
-
-    if (!configModule.default) {
-      throw new Error(
-        "Malformed configuration file. Please ensure that the file contains the correct syntax in relation to it's extension."
-      );
-    }
-    tempFile.cleanup();
-
-    return configModule.default as C;
   }
 
   /**
@@ -159,14 +129,15 @@ export class DotDir<C extends Record<string, unknown>> {
     // console.log(
     //   "First time reading config or config has changed. Transpiling file..."
     // );
-    const config = await this.transpileConfig(configProperties);
+    const config = await tryHandle(hotImport<C>)(configProperties.filePath);
+    if (config.hasError) throw config.error;
     // console.log(
     //   "First time reading config or config has changed. Transpiling file... complete."
     // );
-    this.cache.set(contentHash, config);
+    this.cache.set(contentHash, config.data);
 
     return {
-      config,
+      config: config.data,
       meta: {
         dirName,
         dirPath: res.data,
