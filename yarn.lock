@@ -372,7 +372,7 @@ __metadata:
   resolution: "dotdir@workspace:."
   dependencies:
     "@types/node": "npm:22.13.4"
-    esbuild: "npm:^0.25.0"
+    ts-hot-import: "npm:^0.1.0"
     ts-jolt: "npm:0.2.1"
     tsx: "npm:4.19.3"
     typescript: "npm:5.7.3"
@@ -1056,7 +1056,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ts-jolt@npm:0.2.1":
+"ts-hot-import@npm:^0.1.0":
+  version: 0.1.0
+  resolution: "ts-hot-import@npm:0.1.0"
+  dependencies:
+    esbuild: "npm:^0.25.0"
+    ts-jolt: "npm:^0.2.1"
+  checksum: 10c0/6879b9b36c7399c6c77b64541df77d50cda29bd4193db93d33b54adfc6959ac07b46c3675880c4d98c816ccca028f606a703c90cc49a3efa21f319d377322508
+  languageName: node
+  linkType: hard
+
+"ts-jolt@npm:0.2.1, ts-jolt@npm:^0.2.1":
   version: 0.2.1
   resolution: "ts-jolt@npm:0.2.1"
   checksum: 10c0/c255becdf79f6efb6638f7fb11d1dc6aa28900768fdd8318e4f42bf7dc0891e9cf2146c72f526abbc4acee28afc6a7d9b703669253201a72f176104497c5720c
