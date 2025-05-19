@@ -25,7 +25,8 @@
   "homepage": "https://github.com/green-flash-digital/dotconfig#readme",
   "scripts": {
     "execute": "yarn tsx ./scripts/run.ts",
-    "build": "yarn tsc --project ./tsconfig.build.json"
+    "build": "yarn tsc --project ./tsconfig.build.json",
+    "release": "npx changeset publish"
   },
   "dependencies": {
     "@changesets/cli": "^2.29.4",
