@@ -3,6 +3,7 @@
   "version": "0.3.1",
   "description": "Easily find and reconcile a project dot config directory to house project specific configurations & files",
   "type": "module",
+  "sideEffects": false,
   "packageManager": "yarn@4.7.0",
   "publishConfig": {
     "access": "public"
@@ -28,12 +29,12 @@
     "build": "yarn tsc --project ./tsconfig.build.json"
   },
   "dependencies": {
-    "ts-hot-import": "^0.1.0",
-    "ts-jolt": "0.2.1"
+    "ts-hot-import": "^0.1.4",
+    "ts-jolt": "0.2.2"
   },
   "devDependencies": {
-    "@types/node": "22.13.4",
+    "@types/node": "22.13.8",
     "tsx": "4.19.3",
-    "typescript": "5.7.3"
+    "typescript": "5.8.2"
   }
 }

@@ -232,12 +232,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:22.13.4":
-  version: 22.13.4
-  resolution: "@types/node@npm:22.13.4"
+"@types/node@npm:22.13.8":
+  version: 22.13.8
+  resolution: "@types/node@npm:22.13.8"
   dependencies:
     undici-types: "npm:~6.20.0"
-  checksum: 10c0/3a234fa7766a3efc382cf81f66f474c26cdab2f54f43f757634c81c0444eb2160c2dabbde9741e4983078a318a88515b65416b5f1ab5478548579d7b3ead1d95
+  checksum: 10c0/bfc92b734a9dce6ac5daee0a52feccdf5dcb3804d895e4bc5384e2f4644612b8801725cd03c8c3c0888fb5eeb16b875877ac44b77641e0196dc1a837b1c2a366
   languageName: node
   linkType: hard
 
@@ -371,11 +371,11 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "dotdir@workspace:."
   dependencies:
-    "@types/node": "npm:22.13.4"
-    ts-hot-import: "npm:^0.1.0"
-    ts-jolt: "npm:0.2.1"
+    "@types/node": "npm:22.13.8"
+    ts-hot-import: "npm:^0.1.4"
+    ts-jolt: "npm:0.2.2"
     tsx: "npm:4.19.3"
-    typescript: "npm:5.7.3"
+    typescript: "npm:5.8.2"
   languageName: unknown
   linkType: soft
 
@@ -1056,20 +1056,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ts-hot-import@npm:^0.1.0":
-  version: 0.1.0
-  resolution: "ts-hot-import@npm:0.1.0"
+"ts-hot-import@npm:^0.1.4":
+  version: 0.1.4
+  resolution: "ts-hot-import@npm:0.1.4"
   dependencies:
     esbuild: "npm:^0.25.0"
-    ts-jolt: "npm:^0.2.1"
-  checksum: 10c0/6879b9b36c7399c6c77b64541df77d50cda29bd4193db93d33b54adfc6959ac07b46c3675880c4d98c816ccca028f606a703c90cc49a3efa21f319d377322508
+    ts-jolt: "npm:^0.2.2"
+  checksum: 10c0/245701f17705a83b2199cb0767fee5bf7e57d5e5e12c42193afcd031dd5bc5ea755ed09af1bfeeb922a6f37381415dab84eab3f2f64980896802b8ba948bed20
   languageName: node
   linkType: hard
 
-"ts-jolt@npm:0.2.1, ts-jolt@npm:^0.2.1":
-  version: 0.2.1
-  resolution: "ts-jolt@npm:0.2.1"
-  checksum: 10c0/c255becdf79f6efb6638f7fb11d1dc6aa28900768fdd8318e4f42bf7dc0891e9cf2146c72f526abbc4acee28afc6a7d9b703669253201a72f176104497c5720c
+"ts-jolt@npm:0.2.2, ts-jolt@npm:^0.2.2":
+  version: 0.2.2
+  resolution: "ts-jolt@npm:0.2.2"
+  checksum: 10c0/7d236fe09b8adf276f22835a28114ad066e0d10867a0250f9195c25d77fd06f61d0691a9d38894d707b0678f1d60917b9ec358e4c53ce437cb6c3f19dfdc7d18
   languageName: node
   linkType: hard
 
@@ -1089,23 +1089,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:5.7.3":
-  version: 5.7.3
-  resolution: "typescript@npm:5.7.3"
+"typescript@npm:5.8.2":
+  version: 5.8.2
+  resolution: "typescript@npm:5.8.2"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 10c0/b7580d716cf1824736cc6e628ab4cd8b51877408ba2be0869d2866da35ef8366dd6ae9eb9d0851470a39be17cbd61df1126f9e211d8799d764ea7431d5435afa
+  checksum: 10c0/5c4f6fbf1c6389b6928fe7b8fcd5dc73bb2d58cd4e3883f1d774ed5bd83b151cbac6b7ecf11723de56d4676daeba8713894b1e9af56174f2f9780ae7848ec3c6
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@npm%3A5.7.3#optional!builtin<compat/typescript>":
-  version: 5.7.3
-  resolution: "typescript@patch:typescript@npm%3A5.7.3#optional!builtin<compat/typescript>::version=5.7.3&hash=5786d5"
+"typescript@patch:typescript@npm%3A5.8.2#optional!builtin<compat/typescript>":
+  version: 5.8.2
+  resolution: "typescript@patch:typescript@npm%3A5.8.2#optional!builtin<compat/typescript>::version=5.8.2&hash=5786d5"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 10c0/6fd7e0ed3bf23a81246878c613423730c40e8bdbfec4c6e4d7bf1b847cbb39076e56ad5f50aa9d7ebd89877999abaee216002d3f2818885e41c907caaa192cc4
+  checksum: 10c0/5448a08e595cc558ab321e49d4cac64fb43d1fa106584f6ff9a8d8e592111b373a995a1d5c7f3046211c8a37201eb6d0f1566f15cdb7a62a5e3be01d087848e2
   languageName: node
   linkType: hard
 

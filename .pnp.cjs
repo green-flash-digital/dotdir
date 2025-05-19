@@ -27,11 +27,11 @@ const RAW_RUNTIME_STATE =
       [null, {\
         "packageLocation": "./",\
         "packageDependencies": [\
-          ["@types/node", "npm:22.13.4"],\
-          ["ts-hot-import", "npm:0.1.0"],\
-          ["ts-jolt", "npm:0.2.1"],\
+          ["@types/node", "npm:22.13.8"],\
+          ["ts-hot-import", "npm:0.1.4"],\
+          ["ts-jolt", "npm:0.2.2"],\
           ["tsx", "npm:4.19.3"],\
-          ["typescript", "patch:typescript@npm%3A5.7.3#optional!builtin<compat/typescript>::version=5.7.3&hash=5786d5"]\
+          ["typescript", "patch:typescript@npm%3A5.8.2#optional!builtin<compat/typescript>::version=5.8.2&hash=5786d5"]\
         ],\
         "linkType": "SOFT"\
       }]\
@@ -329,10 +329,10 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@types/node", [\
-      ["npm:22.13.4", {\
-        "packageLocation": "../../../.yarn/berry/cache/@types-node-npm-22.13.4-80985669cb-10c0.zip/node_modules/@types/node/",\
+      ["npm:22.13.8", {\
+        "packageLocation": "../../../.yarn/berry/cache/@types-node-npm-22.13.8-e280e411c3-10c0.zip/node_modules/@types/node/",\
         "packageDependencies": [\
-          ["@types/node", "npm:22.13.4"],\
+          ["@types/node", "npm:22.13.8"],\
           ["undici-types", "npm:6.20.0"]\
         ],\
         "linkType": "HARD"\
@@ -497,11 +497,11 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./",\
         "packageDependencies": [\
           ["dotdir", "workspace:."],\
-          ["@types/node", "npm:22.13.4"],\
-          ["ts-hot-import", "npm:0.1.0"],\
-          ["ts-jolt", "npm:0.2.1"],\
+          ["@types/node", "npm:22.13.8"],\
+          ["ts-hot-import", "npm:0.1.4"],\
+          ["ts-jolt", "npm:0.2.2"],\
           ["tsx", "npm:4.19.3"],\
-          ["typescript", "patch:typescript@npm%3A5.7.3#optional!builtin<compat/typescript>::version=5.7.3&hash=5786d5"]\
+          ["typescript", "patch:typescript@npm%3A5.8.2#optional!builtin<compat/typescript>::version=5.8.2&hash=5786d5"]\
         ],\
         "linkType": "SOFT"\
       }]\
@@ -1188,21 +1188,21 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["ts-hot-import", [\
-      ["npm:0.1.0", {\
-        "packageLocation": "../../../.yarn/berry/cache/ts-hot-import-npm-0.1.0-c57621c454-10c0.zip/node_modules/ts-hot-import/",\
+      ["npm:0.1.4", {\
+        "packageLocation": "../../../.yarn/berry/cache/ts-hot-import-npm-0.1.4-e915c7474c-10c0.zip/node_modules/ts-hot-import/",\
         "packageDependencies": [\
-          ["ts-hot-import", "npm:0.1.0"],\
+          ["ts-hot-import", "npm:0.1.4"],\
           ["esbuild", "npm:0.25.0"],\
-          ["ts-jolt", "npm:0.2.1"]\
+          ["ts-jolt", "npm:0.2.2"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["ts-jolt", [\
-      ["npm:0.2.1", {\
-        "packageLocation": "../../../.yarn/berry/cache/ts-jolt-npm-0.2.1-481be474e1-10c0.zip/node_modules/ts-jolt/",\
+      ["npm:0.2.2", {\
+        "packageLocation": "../../../.yarn/berry/cache/ts-jolt-npm-0.2.2-87636019dc-10c0.zip/node_modules/ts-jolt/",\
         "packageDependencies": [\
-          ["ts-jolt", "npm:0.2.1"]\
+          ["ts-jolt", "npm:0.2.2"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -1220,10 +1220,10 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["typescript", [\
-      ["patch:typescript@npm%3A5.7.3#optional!builtin<compat/typescript>::version=5.7.3&hash=5786d5", {\
-        "packageLocation": "../../../.yarn/berry/cache/typescript-patch-6da68bae26-10c0.zip/node_modules/typescript/",\
+      ["patch:typescript@npm%3A5.8.2#optional!builtin<compat/typescript>::version=5.8.2&hash=5786d5", {\
+        "packageLocation": "../../../.yarn/berry/cache/typescript-patch-26c53754b1-10c0.zip/node_modules/typescript/",\
         "packageDependencies": [\
-          ["typescript", "patch:typescript@npm%3A5.7.3#optional!builtin<compat/typescript>::version=5.7.3&hash=5786d5"]\
+          ["typescript", "patch:typescript@npm%3A5.8.2#optional!builtin<compat/typescript>::version=5.8.2&hash=5786d5"]\
         ],\
         "linkType": "HARD"\
       }]\
