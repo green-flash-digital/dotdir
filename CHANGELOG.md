@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.3.2
+
+### Patch Changes
+
+- 7c8b1ef: Upgrades dependencies & adds changesets
+- c225208: Bumps version
+
 ## v0.3.1 (2025-02-23)
 
 ### 🐛 Fixed
