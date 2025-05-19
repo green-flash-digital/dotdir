@@ -1,5 +1,0 @@
----
-"dotdir": patch
----
-
-Bumps version
