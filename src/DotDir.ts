@@ -81,8 +81,7 @@ export class DotDir<C extends Record<string, unknown>> {
     );
     const outputFileDir = path.join(rootDir, "/.temp");
     const now = new Date().getTime().toString();
-    const outputFilePath = path.join(outputFileDir, now);
-    console.log({ outputFilePath });
+    const outputFilePath = path.join(outputFileDir, now, ".js");
     writeFileRecursive(outputFilePath, outputFileContents);
     const configModule = await import(`file://${outputFilePath}`);
 
@@ -91,7 +90,7 @@ export class DotDir<C extends Record<string, unknown>> {
         "Malformed configuration file. Please ensure that the file contains the correct syntax in relation to it's extension."
       );
     }
-    rm(outputFileDir, { force: true, recursive: true });
+    await rm(outputFileDir, { force: true, recursive: true });
 
     return configModule.default as C;
   }
@@ -176,7 +175,6 @@ export class DotDir<C extends Record<string, unknown>> {
     // console.log(
     //   "First time reading config or config has changed. Transpiling file..."
     // );
-    console.log({ configProperties }, res.data);
     const config = await this.transpileConfig({
       ...configProperties,
       rootDir: res.data,
