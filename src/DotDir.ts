@@ -1,7 +1,11 @@
-import { readFile, stat } from "node:fs/promises";
-import { join, resolve } from "node:path";
+import { readFile, rm, stat } from "node:fs/promises";
+import path, { join, resolve } from "node:path";
 import { tryHandle } from "ts-jolt/isomorphic";
-import { findDirectoryUpwards, hashString, TempFile } from "ts-jolt/node";
+import {
+  findDirectoryUpwards,
+  hashString,
+  writeFileRecursive,
+} from "ts-jolt/node";
 import * as esbuild from "esbuild";
 
 export type DotDirFindOptions = {
@@ -49,21 +53,25 @@ export class DotDir<C extends Record<string, unknown>> {
     return `.${name}`;
   }
 
-  private async transpileConfig(configProperties: {
+  private async transpileConfig({
+    filePath,
+    rootDir,
+  }: {
     filePath: string;
     ext: string;
     rootDir: string;
   }) {
-    console.log(configProperties);
-
     const esbuildRes = await tryHandle(esbuild.build)({
-      entryPoints: [configProperties.filePath],
+      entryPoints: [filePath],
       tsconfigRaw: JSON.stringify("ts-jolt/tsconfig/library"),
-      absWorkingDir: configProperties.rootDir,
-      write: false,
+      absWorkingDir: rootDir,
+      bundle: false,
       platform: "node",
       format: "esm",
-      external: ["node:*"],
+      target: "node18",
+      write: false,
+      sourcemap: false,
+      loader: { ".ts": "ts" },
     });
     if (esbuildRes.hasError) throw esbuildRes.error;
 
@@ -71,17 +79,19 @@ export class DotDir<C extends Record<string, unknown>> {
     const outputFileContents = Buffer.from(outputFile.contents).toString(
       "utf-8"
     );
-    const tempFile = new TempFile();
-    const filePath = await tempFile.create(outputFileContents, "js");
-
-    const configModule = await import(`file://${filePath}`);
+    const outputFileDir = path.join(rootDir, "/.temp");
+    const now = new Date().getTime().toString();
+    const outputFilePath = path.join(outputFileDir, now);
+    console.log({ outputFilePath });
+    writeFileRecursive(outputFilePath, outputFileContents);
+    const configModule = await import(`file://${outputFilePath}`);
 
     if (!configModule.default) {
       throw new Error(
         "Malformed configuration file. Please ensure that the file contains the correct syntax in relation to it's extension."
       );
     }
-    tempFile.cleanup();
+    rm(outputFileDir, { force: true, recursive: true });
 
     return configModule.default as C;
   }
@@ -166,6 +176,7 @@ export class DotDir<C extends Record<string, unknown>> {
     // console.log(
     //   "First time reading config or config has changed. Transpiling file..."
     // );
+    console.log({ configProperties }, res.data);
     const config = await this.transpileConfig({
       ...configProperties,
       rootDir: res.data,
