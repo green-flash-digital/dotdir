@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.7
+
+### Patch Changes
+
+- 3eb9e73: Reimplements bundling
+
 ## 0.4.6
 
 ### Patch Changes
