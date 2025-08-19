@@ -81,8 +81,8 @@ export class DotDir<C extends Record<string, unknown>> {
     );
     const outputFileDir = path.join(rootDir, "/.temp");
     const now = new Date().getTime().toString();
-    const outputFilePath = path.join(outputFileDir, now, ".js");
-    writeFileRecursive(outputFilePath, outputFileContents);
+    const outputFilePath = path.join(outputFileDir, now.concat(".js"));
+    await writeFileRecursive(outputFilePath, outputFileContents);
     const configModule = await import(`file://${outputFilePath}`);
 
     if (!configModule.default) {
