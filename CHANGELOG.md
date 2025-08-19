@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.2
+
+### Patch Changes
+
+- b4fa226: Removes bundling of configuration files
+
 ## 0.4.1
 
 ### Patch Changes
