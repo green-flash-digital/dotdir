@@ -52,11 +52,18 @@ export class DotDir<C extends Record<string, unknown>> {
   private async transpileConfig(configProperties: {
     filePath: string;
     ext: string;
+    rootDir: string;
   }) {
+    console.log(configProperties);
+
     const esbuildRes = await tryHandle(esbuild.build)({
       entryPoints: [configProperties.filePath],
       tsconfigRaw: JSON.stringify("ts-jolt/tsconfig/library"),
+      absWorkingDir: configProperties.rootDir,
       write: false,
+      platform: "node",
+      bundle: true,
+      format: "esm",
     });
     if (esbuildRes.hasError) throw esbuildRes.error;
 
@@ -159,7 +166,10 @@ export class DotDir<C extends Record<string, unknown>> {
     // console.log(
     //   "First time reading config or config has changed. Transpiling file..."
     // );
-    const config = await this.transpileConfig(configProperties);
+    const config = await this.transpileConfig({
+      ...configProperties,
+      rootDir: res.data,
+    });
     // console.log(
     //   "First time reading config or config has changed. Transpiling file... complete."
     // );

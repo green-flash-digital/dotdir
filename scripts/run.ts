@@ -10,7 +10,7 @@ if (config.hasError) {
   console.log(config.data);
 }
 
-const config2 = await tryHandle(dotDir.find)();
+const config2 = await tryHandle(dotDir.find)({ dirName: "dotdir-ext" });
 if (config2.hasError) {
   console.error(config2.error);
 } else {
