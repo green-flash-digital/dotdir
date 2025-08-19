@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.1
+
+### Patch Changes
+
+- 9c8d4fa: Externalize any node builtins
+
 ## 0.4.0
 
 ### Minor Changes
