@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.0
+
+### Minor Changes
+
+- b00aad8: Adds support for .ts files
+
 ## 0.3.2
 
 ### Patch Changes
