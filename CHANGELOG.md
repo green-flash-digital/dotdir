@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.5
+
+### Patch Changes
+
+- 475edd0: Fixes temp output path
+
 ## 0.4.4
 
 ### Patch Changes
