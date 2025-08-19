@@ -62,7 +62,6 @@ export class DotDir<C extends Record<string, unknown>> {
       absWorkingDir: configProperties.rootDir,
       write: false,
       platform: "node",
-      bundle: true,
       format: "esm",
       external: ["node:*"],
     });
