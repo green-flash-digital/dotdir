@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.3
+
+### Patch Changes
+
+- efa703e: Compiles to temporary directory to correctly resolve dependencies
+
 ## 0.4.2
 
 ### Patch Changes
