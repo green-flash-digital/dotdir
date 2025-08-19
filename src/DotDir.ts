@@ -87,7 +87,7 @@ export class DotDir<C extends Record<string, unknown>> {
         "Malformed configuration file. Please ensure that the file contains the correct syntax in relation to it's extension."
       );
     }
-    // await rm(outFilePath, { force: true, recursive: true });
+    await rm(outFilePath, { force: true, recursive: true });
 
     return configModule.default as C;
   }
