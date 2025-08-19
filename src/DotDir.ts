@@ -61,6 +61,10 @@ export class DotDir<C extends Record<string, unknown>> {
     ext: string;
     rootDir: string;
   }) {
+    const now = new Date().getTime().toString();
+    const outFileName = `config:${now}.js`;
+    const outFilePath = path.resolve(rootDir, outFileName);
+
     const esbuildRes = await tryHandle(esbuild.build)({
       entryPoints: [filePath],
       tsconfigRaw: JSON.stringify("ts-jolt/tsconfig/library"),
@@ -69,28 +73,20 @@ export class DotDir<C extends Record<string, unknown>> {
       platform: "node",
       format: "esm",
       target: "node18",
-      write: false,
+      outfile: outFileName,
       sourcemap: false,
       loader: { ".ts": "ts" },
     });
     if (esbuildRes.hasError) throw esbuildRes.error;
 
-    const outputFile = esbuildRes.data.outputFiles[0];
-    const outputFileContents = Buffer.from(outputFile.contents).toString(
-      "utf-8"
-    );
-    const outputFileDir = path.join(rootDir, "/.temp");
-    const now = new Date().getTime().toString();
-    const outputFilePath = path.join(outputFileDir, now.concat(".js"));
-    await writeFileRecursive(outputFilePath, outputFileContents);
-    const configModule = await import(`file://${outputFilePath}`);
+    const configModule = await import(`file://${outFilePath}`);
 
     if (!configModule.default) {
       throw new Error(
         "Malformed configuration file. Please ensure that the file contains the correct syntax in relation to it's extension."
       );
     }
-    await rm(outputFileDir, { force: true, recursive: true });
+    await rm(outFilePath, { force: true, recursive: true });
 
     return configModule.default as C;
   }
@@ -127,6 +123,8 @@ export class DotDir<C extends Record<string, unknown>> {
 
     const configFileExts = ["json", "ts", "js", "mjs", "cjs"];
     const dirPath = res.data;
+
+    await writeFileRecursive(path.resolve(dirPath, ".gitignore"), `config:*`);
 
     const responses = await Promise.allSettled(
       configFileExts.map(async (ext) => {
