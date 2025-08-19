@@ -64,6 +64,7 @@ export class DotDir<C extends Record<string, unknown>> {
       platform: "node",
       bundle: true,
       format: "esm",
+      external: ["node:*"],
     });
     if (esbuildRes.hasError) throw esbuildRes.error;
 
