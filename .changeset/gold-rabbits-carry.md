@@ -1,0 +1,5 @@
+---
+"dotdir": patch
+---
+
+Reimplements bundling

@@ -67,14 +67,15 @@ export class DotDir<C extends Record<string, unknown>> {
 
     const esbuildRes = await tryHandle(esbuild.build)({
       entryPoints: [filePath],
-      tsconfigRaw: JSON.stringify("ts-jolt/tsconfig/library"),
+      tsconfigRaw: JSON.stringify("@gfdigital/tsconfig/library"),
       absWorkingDir: rootDir,
-      bundle: false,
+      bundle: true,
       platform: "node",
       format: "esm",
       target: "node18",
       outfile: outFileName,
       sourcemap: false,
+      external: ["node:*"],
       loader: { ".ts": "ts" },
     });
     if (esbuildRes.hasError) throw esbuildRes.error;
@@ -86,7 +87,7 @@ export class DotDir<C extends Record<string, unknown>> {
         "Malformed configuration file. Please ensure that the file contains the correct syntax in relation to it's extension."
       );
     }
-    await rm(outFilePath, { force: true, recursive: true });
+    // await rm(outFilePath, { force: true, recursive: true });
 
     return configModule.default as C;
   }
