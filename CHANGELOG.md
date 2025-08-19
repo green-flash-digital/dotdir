@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.6
+
+### Patch Changes
+
+- 4722f80: Adjust transpilation to auto output file
+
 ## 0.4.5
 
 ### Patch Changes
