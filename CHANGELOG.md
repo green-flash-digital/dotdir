@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.4
+
+### Patch Changes
+
+- 7453141: Remove logs; await cleanup
+
 ## 0.4.3
 
 ### Patch Changes
